@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { logout } = useAuth();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [editingMovie, setEditingMovie] = useState(null); // Para saber qual filme estamos editando
+  const [editingMovie, setEditingMovie] = useState(null); // Para saber qual filme estamos editando 
   const [showForm, setShowForm] = useState(false);
 
   // Filtros

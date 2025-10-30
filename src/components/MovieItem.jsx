@@ -12,7 +12,7 @@ const MovieItem = ({ movie, onEdit, onDelete }) => {
         <button onClick={() => onEdit(movie)} className="btn-edit">
           Editar
         </button>
-        <button onClick={() => onDelete(movie._id)} className="btn-delete">
+        <button onClick={() => onDelete(movie.id)} className="btn-delete">
           Deletar
         </button>
       </div>
