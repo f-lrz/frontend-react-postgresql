@@ -44,7 +44,7 @@ const Dashboard = () => {
         // Seu backend usa PATCH
         const response = await api.patch(`/movies/${editingMovie.id}`, movieData);
         toast.success('Filme atualizado com sucesso!');
-        setMovies(movies.map((m) => (m._id === editingMovie.id ? response.data : m)));
+        setMovies(movies.map((m) => (m.id === editingMovie.id ? response.data : m)));
       } else {
         // Criação
         const response = await api.post('/movies', movieData);
