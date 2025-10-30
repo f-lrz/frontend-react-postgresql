@@ -42,9 +42,9 @@ const Dashboard = () => {
       if (editingMovie) {
         // Atualização (PATCH para parcial, PUT para completo)
         // Seu backend usa PATCH
-        const response = await api.patch(`/movies/${editingMovie._id}`, movieData);
+        const response = await api.patch(`/movies/${editingMovie.id}`, movieData);
         toast.success('Filme atualizado com sucesso!');
-        setMovies(movies.map((m) => (m._id === editingMovie._id ? response.data : m)));
+        setMovies(movies.map((m) => (m._id === editingMovie.id ? response.data : m)));
       } else {
         // Criação
         const response = await api.post('/movies', movieData);
@@ -62,7 +62,7 @@ const Dashboard = () => {
       try {
         await api.delete(`/movies/${id}`); //
         toast.success('Filme deletado com sucesso!');
-        setMovies(movies.filter((m) => m._id !== id));
+        setMovies(movies.filter((m) => m.id !== id));
       } catch (error) {
         toast.error('Erro ao deletar filme');
       }
@@ -125,7 +125,7 @@ const Dashboard = () => {
         {!loading && movies.length === 0 && <p>Nenhum filme cadastrado.</p>}
         {movies.map((movie) => (
           <MovieItem
-            key={movie._id}
+            key={movie.id}
             movie={movie}
             onEdit={openEditForm}
             onDelete={handleDeleteMovie}
