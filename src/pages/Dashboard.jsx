@@ -6,7 +6,7 @@ import MovieForm from '../components/MovieForm';
 import MovieItem from '../components/MovieItem';
 
 const Dashboard = () => {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingMovie, setEditingMovie] = useState(null); // Para saber qual filme estamos editando
@@ -84,10 +84,12 @@ const Dashboard = () => {
     setShowForm(false);
   }
 
+  const firstName = user?.name ? user.name.split(' ')[0] : 'Usuário';
+
   return (
     <div className="dashboard-container">
       <header>
-        <h1>Minha Lista de Filmes</h1>
+        <h1>Lista de Filmes de {firstName}</h1>
         <button onClick={logout} className="logout-btn">
           Logout
         </button>
